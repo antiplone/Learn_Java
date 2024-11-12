@@ -8,10 +8,11 @@ code
 ```
 ## ? <font color="green"/>궁금한것...
 
- - 향상된 for문(for...each)
-	 {WhichClass, WhichClass, null, WhichClass}이 상황일때 어떻게 되는가...?
+ - **향상된 for문(for...each)**
+	 - 	 {WhichClass, WhichClass, null, WhichClass}이 상황일때 어떻게 되는가...?
+ - 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzU0NjY0Nzk1LDMyMjEyOTEzOSwtMjA5Mz
-c4NDEyOCwtMTM2NzMzMTU5MSwtMTM2NzMzMTU5MSwtMTUwMzg0
-MjkzM119
+eyJoaXN0b3J5IjpbLTE2OTEwNTYzMTMsMzIyMTI5MTM5LC0yMD
+kzNzg0MTI4LC0xMzY3MzMxNTkxLC0xMzY3MzMxNTkxLC0xNTAz
+ODQyOTMzXX0=
 -->
