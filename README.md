@@ -4,7 +4,12 @@
  3. Python...을 조련을 잘하면, 꿈이 이뤄지나요...
  4. Spring...을 쓰면, 봄이오나요...
 
+## 궁금한것...
+
+ - 향상된 for문(for...each)
+	 만약에 클래스로 배열을 생성한 후 중간에 배열이 비어있는ㄱ여우
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzIyMTI5MTM5LC0yMDkzNzg0MTI4LC0xMz
-Y3MzMxNTkxLC0xMzY3MzMxNTkxLC0xNTAzODQyOTMzXX0=
+eyJoaXN0b3J5IjpbMTg3MjM5MzkwOSwzMjIxMjkxMzksLTIwOT
+M3ODQxMjgsLTEzNjczMzE1OTEsLTEzNjczMzE1OTEsLTE1MDM4
+NDI5MzNdfQ==
 -->
