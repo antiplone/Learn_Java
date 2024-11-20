@@ -15,13 +15,12 @@ public class _01_Main {
 		 * Spread Parameter
 		 */
 		_01_Company nexon = _01_Company.getInstance();
-
 		List<String> listID = nexon.getListID();
 		Map<String, _01_Employee> employees = nexon.getEmployees();
-		
-		_01_Employee emp1 = employees.get(listID.get(0));
-		StringBuffer sb = new StringBuffer();
 
+		_01_Employee emp1 = employees.get(listID.get(0));
+
+		StringBuffer sb = new StringBuffer();
 		String addr = emp1.getAddress();
 		if (addr.length() < 4) {
 			addr = addr.replace("어딘가", "서울시 서초구쪽");
@@ -42,5 +41,4 @@ public class _01_Main {
 		sb.insert(sb.length(), " 확실한가?");
 		System.out.println("[" + qu + "] " + sb.toString());
 	}
-
 }
