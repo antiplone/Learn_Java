@@ -77,13 +77,31 @@ SELECT LENGTH(hire_date)
 SELECT REPLACE(email, 'com', 'net')
     FROM employees
  WHERE job_title = 'Programmer';
-louie.richardson@example.net
-nathan.cox@example.net
-bobby.torres@example.net
-charles.ward@example.net
-gabriel.howard@example.net
+-- louie.richardson@example.net
+-- nathan.cox@example.net
+-- bobby.torres@example.net
+-- charles.ward@example.net
+-- gabriel.howard@example.net
 
---SELECT SUBSTR(email, INSTR(email, '.') + 1, INSTR(email, '.') )
---             , email
---    FROM employees;
--- WHERE INITCAP(SUBSTR(email, INSTR(email, '.') + 1, INSTR(email, '@') - 1)) = 'Richardson';
+SELECT SUBSTR(first_name, 1, 1) || '.' || last_name   "이름"
+             , email
+    FROM employees
+ WHERE INITCAP(SUBSTR(email, 1, INSTR(email, '.') - 1 )) LIKE 'Loui%';
+-- L.Richardson    louie.richardson@example.com
+-- L.Wood  louis.wood@example.com
+
+SELECT SUBSTR(first_name, 1, 1) || '.' || last_name "이름"
+             , email
+             , phone                                                            "전화번호"
+    FROM employees
+ WHERE first_name LIKE 'El%'    -- 이름이 El로 시작하는 집합
+INTERSECT
+SELECT SUBSTR(first_name, 1, 1) || '.' || last_name "이름"
+             , email
+             , phone                                                            "전화번호"
+    FROM employees
+WHERE SUBSTR(phone, 1, 3) = '650';  -- 전화번호가 650으로 시작하는 집합
+-- E.Black eliza.black@example.com 650.505.2876
+-- E.Grant eleanor.grant@example.com   650.501.3876
+-- E.Robertson ellie.robertson@example.com 650.509.4876
+-- E.Washington    ellis.washington@example.com    650.124.6234
