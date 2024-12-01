@@ -100,7 +100,6 @@ public class _01_ArrayList {
 			System.out.println(str);
 		}
 
-
 		/* 10. 반복자 : Iterator<E> iterator : while(hasNext())  { next() } */
 //		ArrayList<Object> list = new ArrayList</* [undef, class] */>();
 //		ArrayList<String> list = new ArrayList();
