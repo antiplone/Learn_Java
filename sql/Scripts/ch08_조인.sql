@@ -240,6 +240,37 @@ SELECT e.employee_id                "사번"
            AND e.employee_id = 101
            AND jh.start_date = '97/09/21';
 
+-- [ 6. 조인을 사용하여 'Seattle' city에서 근무하는 사원의 이름과 급여를 출력하세요. ] -- 18건
+-- [방법1]
+SELECT e.last_name       "이름"
+             , e.salary        "급여"
+    FROM employees   e
+              , locations      l
+              , departments  d
+ WHERE e.department_id = d.department_id
+       AND d.location_id = l.location_id
+       AND l.city LIKE '%Seattle%';
+
+-- [방법2]
+SELECT e.last_name       "이름"
+             , e.salary        "급여"
+    FROM employees   e
+      JOIN departments  d
+         ON e.department_id = d.department_id
+      JOIN locations      l
+         ON d.location_id = l.location_id
+       WHERE l.city LIKE '%Seattle%';
+------------------------------------------------------------------------------  
+-- 7. country_id가 'US'를 포함할 때의 countrys 테이블의 모든 정보 조회
+SELECT countries.*
+    FROM countries
+ WHERE country_id LIKE '%US%';
+
+------------------------------------------------------------------------------  
+-- 8. 'IT'가 포함된 부서명을 가진 부서의 사번, 
+-- 이름(last_name-first_name), 입사일, 부서ID, 부서명 조회 -- 5건
+-- [방법1] 
+
 /*
  * 면접
  *    Outer join
@@ -318,7 +349,7 @@ ORDER BY d.department_id;
          ON d.department_id =e.department_id
 ORDER BY d.department_id;
 
- 
+
  -- [ FULL OUTER JOIN ]  => LEFT OUTER JOIN 16건 + RIGHT OUTER JOIN 1건 추가
  -- 방법1. NG
 SELECT d.department_id  
@@ -341,4 +372,33 @@ SELECT d.department_id
  FULL OUTER JOIN employees e
     ON d.department_id = e.department_id   -- 10~110 + NULL 1건
  ORDER BY d.department_id;
- 
+
+//AI서비스_웹과정반 @19일차[오라클5일차]
+-- [ 셀프 조인 ]
+-- 사원테이블 e, 매니저테이블 copy_e
+-- 사번, 사원명, 매니저id, 매니저명, 매니저 사번
+-- 143   Matos-Randall   124   Mourgos-Kevin   124
+-- 방법1.
+SELECT e.employee_id -- 사번
+     , e.last_name || '-' || e.first_name AS 사원명  -- 사원명
+     , e.manager_id  -- 매니저id
+     , m.last_name || '-' || m.first_name AS 매니저명   -- 매니저명
+     , m.employee_id -- 매니저사번
+  FROM employees e   -- 사원 테이블
+     , employees m   -- 매니저 테이블
+ WHERE  e.manager_id = m.employee_id  
+  AND e.employee_id = 143;
+
+-- 방법2.
+SELECT e.employee_id -- 사번
+     , e.last_name || '-' || e.first_name AS 사원명  -- 사원명
+     , e.manager_id  -- 매니저id
+     , m.last_name || '-' || m.first_name AS 매니저명   -- 매니저명
+     , m.employee_id -- 매니저사번
+  FROM employees e   -- 사원 테이블
+  JOIN employees m   -- 매니저 테이블
+    ON e.manager_id = m.employee_id  
+  WHERE e.employee_id in (143, 124);
+-- 최고 상사를 찾을수도??
+--124	Mourgos-Kevin	100	King-Steven	100
+--143	Matos-Randall	124	Mourgos-Kevin	124
